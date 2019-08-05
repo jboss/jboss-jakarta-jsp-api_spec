@@ -1,3 +1,8 @@
-# Prerequisites
+JBoss JSP API
+==================================
 
-Oracle JDK 1.7 
+What is this
+-----------------------
+
+This is fork of Jakarta JSP api project.
+Upstream used: https://github.com/eclipse-ee4j/jsp-api/
