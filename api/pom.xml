@@ -19,19 +19,19 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <groupId>org.eclipse.ee4j</groupId>
-        <artifactId>project</artifactId>
-        <version>1.0.5</version>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>35</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>jakarta.servlet.jsp</groupId>
-    <artifactId>jakarta.servlet.jsp-api</artifactId>
-    <version>2.3.6</version>
+    <groupId>org.jboss.spec.javax.servlet.jsp</groupId>
+    <artifactId>jboss-jsp-api_2.3_spec</artifactId>
+    <version>2.0.0.CR1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Jakarta Server Pages API</name>
+    <name>JBoss Jakarta Server Pages API</name>
 
-    <description>Jakarta Server Pages API</description>
+    <description>JBoss Jakarta Server Pages API</description>
     <url>https://projects.eclipse.org/projects/ee4j.jsp</url>
 
     <properties>
@@ -85,9 +85,9 @@
         </mailingList>
     </mailingLists>
     <scm>
-        <connection>scm:git:https://github.com/eclipse-ee4j/jsp-api.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/eclipse-ee4j/jsp-api.git</developerConnection>
-        <url>https://github.com/eclipse-ee4j/jsp-api</url>
+        <connection>scm:git:https://github.com/jboss/jboss-jakarta-jsp-api_spec.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/jboss/jboss-jakarta-jsp-api_spec.git</developerConnection>
+        <url>https://github.com/jboss/jboss-jakarta-jsp-api_spec</url>
         <tag>HEAD</tag>
     </scm>
 
