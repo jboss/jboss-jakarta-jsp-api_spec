@@ -29,7 +29,7 @@
     <groupId>org.jboss.spec.javax.servlet.jsp</groupId>
     <artifactId>jboss-jsp-api_2.3_spec-parent</artifactId>
     <packaging>pom</packaging>
-    <version>2.0.0.CR1</version>
+    <version>2.0.0.CR2-SNAPSHOT</version>
     <name>JBoss Jakarta Server Pages API - parent</name>
     <description>JBoss Jakarta Server Pages API</description>
     <url>https://projects.eclipse.org/projects/ee4j.jsp</url>
