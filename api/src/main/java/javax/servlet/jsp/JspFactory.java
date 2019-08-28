@@ -66,6 +66,15 @@ public abstract class JspFactory {
      * @return the default factory for this implementation
      */
     public static JspFactory getDefaultFactory() {
+        if (deflt == null) {
+            try {
+                Class factory = Class.forName("org.apache.jasper.runtime.JspFactoryImpl");
+                if (factory != null) {
+                    deflt = (JspFactory) factory.newInstance();
+                }
+            } catch (Exception ex) {
+            }
+        }
         return deflt;
     }
 
