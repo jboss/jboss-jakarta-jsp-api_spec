@@ -44,6 +44,7 @@
         <findbugs.threshold>High</findbugs.threshold>
 
         <version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec>2.0.0.Final</version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec>
+        <version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>2.0.0.Final</version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec>
     </properties>
 
     <contributors>
@@ -218,9 +219,9 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>jakarta.el</groupId>
-            <artifactId>jakarta.el-api</artifactId>
-            <version>3.0.2</version>
+            <groupId>org.jboss.spec.javax.el</groupId>
+            <artifactId>jboss-el-api_3.0_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.el.jboss-el-api_3.0_spec}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
