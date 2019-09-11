@@ -37,11 +37,13 @@
     <properties>
         <spec.version>2.3</spec.version>
         <extensionName>javax.servlet.jsp</extensionName>
-        <bundle.symbolicName>javax.servlet.jsp-api</bundle.symbolicName>
+        <bundle.symbolicName>org.jboss.spec.javax.servlet.jsp.jboss-jsp-api_2.3_spec</bundle.symbolicName>
         <vendorName>Eclipse Foundation</vendorName>
         <findbugs.version>2.5.2</findbugs.version>
         <findbugs.exclude />
         <findbugs.threshold>High</findbugs.threshold>
+
+        <version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec>2.0.0.Final</version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec>
     </properties>
 
     <contributors>
@@ -96,14 +98,21 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>1.4.3</version>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
                     <supportedProjectTypes>
                         <supportedProjectType>jar</supportedProjectType>
                     </supportedProjectTypes>
                     <instructions>
                         <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
                         <_include>-osgi.bundle</_include>
+                        <Export-Package>
+                            javax.servlet.jsp*;version=2.3
+                        </Export-Package>
                     </instructions>
                 </configuration>
                 <executions>
@@ -126,6 +135,7 @@
                     <archive>
                         <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
                         <manifestEntries>
+                            <Automatic-Module-Name>beta.jboss.jsp.api_2_3</Automatic-Module-Name>
                             <Extension-Name>${extensionName}</Extension-Name>
                             <!--Specification-Title>${specificationTitle}</Specification-Title-->
                             <Specification-Version>${spec.version}</Specification-Version>
@@ -200,10 +210,11 @@ Use is subject to <a href="{@docRoot}/doc-files/speclicense.html" target="_top">
     </reporting>
 
     <dependencies>
+        <!-- org.jboss.spec.javax.servlet:jboss-servlet-api_4.0_spec:2.0.0.Final -->
         <dependency>
-            <groupId>jakarta.servlet</groupId>
-            <artifactId>jakarta.servlet-api</artifactId>
-            <version>4.0.2</version>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_4.0_spec</artifactId>
+            <version>${version.org.jboss.spec.javax.servlet.jboss-servlet-api_4.0_spec}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
