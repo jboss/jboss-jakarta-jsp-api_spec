@@ -22,6 +22,8 @@ import java.beans.FeatureDescriptor;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.JspContext;
@@ -44,6 +46,10 @@ import javax.el.ELException;
  * @since JSP 2.1
  */
 public class ScopedAttributeELResolver extends ELResolver {
+
+    private final Map<String, Object> cache = new ConcurrentHashMap<>();
+
+    private static final Object NULL_MARKER = new Object();
 
     /**
      * If the base object is <code>null</code>, searches the page, request, session and application scopes for an
@@ -90,11 +96,23 @@ public class ScopedAttributeELResolver extends ELResolver {
                 if (value == null) {
                     // check to see if the property is an imported class
                     if (context.getImportHandler() != null) {
+                        final String klassName = (String) property;
+                        Object cacheResult = cache.get(klassName);
+                        if(cacheResult != null) {
+                            if(cacheResult == NULL_MARKER) {
+                                return null;
+                            } else {
+                                return new ELClass((Class) cacheResult);
+                            }
+                        }
                         Class<?> c = context.getImportHandler().resolveClass(attribute);
                         if (c != null) {
+                            cache.put(klassName, c);
                             value = new ELClass(c);
                             // A possible optimization is to set the ELClass
                             // instance in an attribute map.
+                        } else {
+                            cache.put(klassName, NULL_MARKER);
                         }
                     }
                 }
